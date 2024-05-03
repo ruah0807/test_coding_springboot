@@ -14,14 +14,24 @@ public class ItemController {
     private final ItemRepository itemRepository;
 
     @GetMapping("/list")
-    String list(Model model){
+    String list(Model model) {
 
         List<Item> result = itemRepository.findAll();
-        System.out.println(result.get(1).title);
-        System.out.println(result.get(1).price);
+
+        model.addAttribute("items", result);
+
+        var object = new Age();
+
+        object.한살더하기(100);
+        System.out.println(object);
+
+        object.나이설정(200);
+        System.out.println(object);
 
 
-        model.addAttribute("items",result);
+
         return "list.html";
     }
+
+
 }
