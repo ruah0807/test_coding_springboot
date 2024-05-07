@@ -9,6 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +20,8 @@ public class Item {
     private Integer price;
 
 
-
-
+//    public Item(String title, Integer price) {
+//        this.title = title;
+//        this.price = price;
+//    }
 }
