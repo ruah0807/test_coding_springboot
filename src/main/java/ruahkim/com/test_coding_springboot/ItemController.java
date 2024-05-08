@@ -62,7 +62,7 @@ public class ItemController {
             System.out.println("item : " + item);
             return "detail.html";
         }else {
-            return"/";
+            return"redirect:/list";
         }
     }
 
