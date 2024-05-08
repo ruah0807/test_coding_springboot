@@ -14,22 +14,12 @@ import java.util.Optional;
 public class ItemController {
 
     private final ItemRepository itemRepository;
+    private final ItemService itemService;
 
     @GetMapping("/list")
     String list(Model model) {
 
-        List<Item> result = itemRepository.findAll();
-
-        model.addAttribute("items", result);
-
-//        var object = new Age();
-//
-//        object.한살더하기(100);
-//        System.out.println(object);
-//
-//        object.나이설정(200);
-//        System.out.println(object);
-
+        itemService.showList(model);
 
         return "list.html";
     }
@@ -40,33 +30,18 @@ public class ItemController {
     }
 
     @PostMapping("/add")
-    String addPost(@ModelAttribute Item item) {
-        System.out.println(item);
-        itemRepository.save(item);
+    String addPost(String title, Integer price) {
 
+        itemService.saveItem(title,price);
 
-//        Item addItem = new Item();
-//        addItem.setTitle(title);
-//        addItem.setPrice(price);
-//        itemRepository.save(addItem);
         return "redirect:/list";
     }
 
     @GetMapping("/detail/{id}")
-    String detailProduct(@PathVariable Long id, Model model) throws Exception {
+    String detailProduct(@PathVariable Long id, Model model)  {
 
-        throw new Exception();
-//        Optional<Item> result = itemRepository.findById(id);
-////                Optional: 데이터가 있을 수도 없을 수도 있음.
-//        if (result.isPresent()) {
-//            Item item = result.get();
-//            model.addAttribute("item", item);
-//            System.out.println("item : " + item);
-//            return "detail.html";
-//        } else {
-//            return "redirect:/list";
-//        }
-
+      itemService.showDetail(id,model);
+            return "detail.html";
     }
 
 //      클래스 Rest API 에러 내주는 handler
