@@ -1,6 +1,7 @@
 package ruahkim.com.test_coding_springboot;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -52,19 +53,25 @@ public class ItemController {
     }
 
     @GetMapping("/detail/{id}")
-    String detailProduct(@PathVariable Long id, Model model){
+    String detailProduct(@PathVariable Long id, Model model) throws Exception {
 
-        Optional<Item> result = itemRepository.findById(id);
-//                Optional: 데이터가 있을 수도 없을 수도 있음.
-        if(result.isPresent()) {
-            Item item = result.get();
-            model.addAttribute("item", item);
-            System.out.println("item : " + item);
-            return "detail.html";
-        }else {
-            return"redirect:/list";
-        }
+        throw new Exception();
+//        Optional<Item> result = itemRepository.findById(id);
+////                Optional: 데이터가 있을 수도 없을 수도 있음.
+//        if (result.isPresent()) {
+//            Item item = result.get();
+//            model.addAttribute("item", item);
+//            System.out.println("item : " + item);
+//            return "detail.html";
+//        } else {
+//            return "redirect:/list";
+//        }
+
     }
 
-
+//      클래스 Rest API 에러 내주는 handler
+//    @ExceptionHandler(Exception.class)
+//    public void handler(){
+//        return ResponseEntity.status().body;
+//    }
 }
