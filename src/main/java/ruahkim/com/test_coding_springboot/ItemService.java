@@ -1,6 +1,7 @@
 package ruahkim.com.test_coding_springboot;
 
 import lombok.RequiredArgsConstructor;
+import org.aspectj.bridge.IMessage;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -36,4 +37,24 @@ public class ItemService {
 
     }
 
+    public void update(Long id, Item updateItem){
+
+
+      Optional<Item> result = itemRepository.findById(id);
+        System.out.println("result : "+result);
+
+        if(result.isPresent()){
+            Item changeItem = result.get();
+            changeItem.setTitle(updateItem.getTitle());
+            changeItem.setPrice(updateItem.getPrice());
+            itemRepository.save(changeItem);
+            System.out.println("change Item : "+changeItem);
+
+
+        } else {
+            throw new RuntimeException("에러");
+        }
+
+
+    }
 }

@@ -20,8 +20,8 @@ public class Item {
     private Integer price;
 
 
-//    public Item(String title, Integer price) {
-//        this.title = title;
-//        this.price = price;
-//    }
+    public void change(String title, Integer price){
+        this.title = title;
+        this.price = price;
+    }
 }

@@ -12,6 +12,7 @@
     <div>
         <a th:href="@{/detail/{id}(id=${item.id})}" th:text="${item.title}"></a>
         <p th:href="@{/detail/{id}(id=${item.id})}" th:text="${item.price}"></p>
+        <a th:href="@{/update/{id}(id=${item.id})}">수정하기</a>
     </div>
 </div>
 </body>
