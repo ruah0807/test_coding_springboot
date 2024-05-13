@@ -1,4 +1,4 @@
-package ruahkim.com.test_coding_springboot;
+package ruahkim.com.test_coding_springboot.item;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -13,7 +13,46 @@
         <a th:href="@{/detail/{id}(id=${item.id})}" th:text="${item.title}"></a>
         <p th:href="@{/detail/{id}(id=${item.id})}" th:text="${item.price}"></p>
         <a th:href="@{/update/{id}(id=${item.id})}">수정하기</a>
+        <button onclick="deleteItem(this)" th:value="${item.id}">버 튼</button>
     </div>
 </div>
+
+
+<script>
+
+    function deleteItem(element){
+        var itemId = element.getAttribute('value'); // 버튼의 value 속성에서 아이템 id 가져오기
+        fetch(`/delete?id=${itemId}`, { //delete 요청 url, 쿼리 파라미터 사용
+            method: 'DELETE'
+        }).then(response => {
+            if(response.ok){
+                console.log('Item deleted Successfully');
+                element.closest('.card').remove();
+            } else {
+                response.text().then(text => { throw new Error(text);});
+            }
+        }).catch(error => {
+            console.error('Error :', error)
+        })
+    }
+
+    // Json style Ajax 요청
+    // document.querySelectorAll('.btn')[0].addEventListener('click', function(){
+    //     fetch('/test1', {
+    //         method : 'POST',
+    //         headers : { 'Content-Type' : 'application/json' },
+    //         body : JSON.stringify({name: 'kim'})
+    //     })
+    // })
+
+    //쿼리 스트링 : 보안불가, 간단한 것들만 요청보낼때 사용
+    // document.querySelectorAll('.btn')[0].addEventListener('click', function(){
+    //     fetch('/test1?name=ruah&age=20')
+    // })
+
+
+
+
+</script>
 </body>
 </html>

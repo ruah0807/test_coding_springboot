@@ -1,13 +1,13 @@
-package ruahkim.com.test_coding_springboot;
+package ruahkim.com.test_coding_springboot.item;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.Banner;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+import java.util.Objects;
 
 @Controller
 @RequiredArgsConstructor
@@ -53,6 +53,20 @@ public class ItemController {
     String update(@PathVariable Long id, Item updateItem){
         itemService.update(id, updateItem);
         return "redirect:/list";
+    }
+    @GetMapping("/test1")
+    String test1(@RequestParam String name, @RequestParam Integer age){
+        System.out.println(name+age);
+        return "redirect:/list";
+    }
+
+
+    @DeleteMapping("/delete")
+    @ResponseBody
+    public ResponseEntity<?> delete(@RequestParam("id") Long id){
+        System.out.println(id);
+        itemService.deleteProduct(id);
+        return ResponseEntity.ok().build();
     }
 //      클래스 Rest API 에러 내주는 handler
 //    @ExceptionHandler(Exception.class)

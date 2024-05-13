@@ -1,9 +1,10 @@
-package ruahkim.com.test_coding_springboot;
+package ruahkim.com.test_coding_springboot.item;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,7 +61,16 @@ public class ItemService {
         } else {
             throw new RuntimeException("아이템을 찾을 수 없습니다.");
         }
+    }
 
 
+    public void deleteProduct(Long id){
+        Optional<Item> delete = itemRepository.findById(id);
+        if (delete.isPresent()){
+            Item item = delete.get();
+            itemRepository.delete(item);
+        } else {
+            throw new RuntimeException("cannot found item");
+        }
     }
 }
