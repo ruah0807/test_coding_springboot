@@ -1,7 +1,6 @@
 package ruahkim.com.test_coding_springboot;
 
 import lombok.RequiredArgsConstructor;
-import org.aspectj.bridge.IMessage;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
