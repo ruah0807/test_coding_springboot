@@ -25,6 +25,8 @@ bin/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+application-dbinfo.properties
+
 
 ### NetBeans ###
 /nbproject/private/
@@ -36,4 +38,3 @@ out/
 ### VS Code ###
 .vscode/
 
-application-dbinfo.properties
