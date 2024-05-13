@@ -45,6 +45,13 @@ public class ItemService {
 
         if(result.isPresent()){
             Item changeItem = result.get();
+
+            if(100 < updateItem.getTitle().length() ){
+             throw new IllegalArgumentException("제목이 너무 깁니다.");
+            }
+            if(0> updateItem.getPrice() ){
+                throw new IllegalArgumentException("가격이 음수일 경우 저장불가능합니다.");
+            }
             changeItem.setTitle(updateItem.getTitle());
             changeItem.setPrice(updateItem.getPrice());
             itemRepository.save(changeItem);
@@ -52,7 +59,7 @@ public class ItemService {
 
 
         } else {
-            throw new RuntimeException("에러");
+            throw new RuntimeException("아이템을 찾을 수 없습니다.");
         }
 
 
