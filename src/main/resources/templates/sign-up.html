@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>create Member</title>
+    <link href="/main.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{nav.html::navbar}"></div>
+
+<form action="/save-member" method="post">
+    <label id="username"> 회원 아이디 : </label>
+    <input for="username" name="username">
+    <br>
+
+    <label id="password"> 비밀번호 : </label>
+    <input for="password" name="password">
+    <label id="displayName"> 이름 : </label>
+    <input for="displayName" name="displayName">
+
+    <button type="submit">전송</button>
+</form>
+</body>
+</html>
