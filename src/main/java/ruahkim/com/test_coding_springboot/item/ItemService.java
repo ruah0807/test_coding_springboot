@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +38,6 @@ ItemService {
     }
 
     public void update(Long id, Item updateItem){
-
 
       Optional<Item> result = itemRepository.findById(id);
         System.out.println("result : "+result);

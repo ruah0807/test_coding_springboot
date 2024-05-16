@@ -1,4 +1,4 @@
-package ruahkim.com.test_coding_springboot.item;
+package ruahkim.com.test_coding_springboot.member;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

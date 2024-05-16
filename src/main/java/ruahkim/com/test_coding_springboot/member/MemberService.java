@@ -1,10 +1,9 @@
-package ruahkim.com.test_coding_springboot.item;
+package ruahkim.com.test_coding_springboot.member;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 @Service
 @Log4j2
